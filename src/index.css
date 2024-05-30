@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.enroll-btn {
+    @apply font-bold btn bg-black w-full text-white
+    tracking-widest m-0 hover:text-black hover:border-gray-400 hover:bg-white ;
+}
+
+.log-btn {
+    @apply  px-4 font-serif font-medium  btn bg-black border-0 text-white
+    tracking-widest m-0 hover:text-black hover:border-gray-400 hover:bg-white ;
+}
+
+.heading {
+    @apply text-5xl font-bold text-black text-center py-3
+}
+
+.subHeading {
+    @apply text-lg text-gray-500 text-center pb-7
+}
