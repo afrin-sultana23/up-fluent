@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import {FaUserGraduate} from "react-icons/fa";
 
 
 const instructors = [
     { id: 1, name: "John Doe", language: "Spanish", image: "https://i.imgur.com/Qcz8rDf.jpeg", description: "Expert in conversational Spanish" },
     { id: 2, name: "Jane Smith", language: "French", image: "https://imgur.com/y7ug15A.png", description: "Specializes in French literature" },
     { id: 3, name: "Mike Johnson", language: "German", image: "https://i.imgur.com/3b5DL4H.jpeg", description: "Focuses on business German" },
-    { id: 4, name: "Emily Johnson", language: "Italian", image: "https://imgur.com/tscySrk.png", description: "Italian cuisine and culture expert" },
-    { id: 5, name: "David Lee", language: "Mandarin", image: "/placeholder.svg?height=200&width=200", description: "Teaches Mandarin for beginners" },
+    { id: 4, name: "Emily Johnson", language: "Italian", image: "https://i.imgur.com/i6VQZvM.jpeg", description: "Italian cuisine and culture expert" },
+    { id: 5, name: "David Lee", language: "Mandarin", image: "https://i.imgur.com/3b5DL4H.jpeg", description: "Teaches Mandarin for beginners" },
+    { id: 6, name: "Alice", language: "English", image: "https://i.imgur.com/i6VQZvM.jpeg", description: "Teaches Mandarin for beginners" },
 ];
 
 const Instructors = () => {
@@ -30,28 +32,17 @@ const Instructors = () => {
 
     return (
         <div className="container mx-auto p-4 max-w-6xl flex justify-between bg-violet-200 rounded-md">
-            <div className="w-2/3 flex justify-between items-start mb-6">
-                <div className="">
-                    <h2 className="text-3xl font-bold text-primary mb-2">Meet Our Instructors</h2>
-                    <p className="text-base-content opacity-70">Learn from the best in the field</p>
+            <div className=" flex w-[25%]justify-between items-start mb-6">
+                <div className="pt-[6rem]">
+                    <FaUserGraduate  className="text-violet-400 w-12 h-12"/>
+                    <h2 className="text-5xl font-bold text-black mb-2">Meet Our <br />Instructors</h2>
+                    <p className="text-gray-900">Learn from the best in the field. Also
+                        <br /> build exam confidence in a calm environment</p>
                 </div>
 
             </div>
-            <div className="overflow-hidden ">
-                <div className="flex space-x-2 ">
-                    <button className="btn btn-sm btn-circle btn-outline" onClick={prevSlide}>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                             className="w-6 h-6">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7"/>
-                        </svg>
-                    </button>
-                    <button className="btn btn-sm btn-circle btn-outline" onClick={nextSlide}>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                             className="w-6 h-6">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
-                        </svg>
-                    </button>
-                </div>
+            <div className="overflow-hidden w-[75%]">
+
                 <div
                     className="flex transition-transform duration-300 ease-in-out mt-4"
                     style={{transform: `translateX(-${currentIndex * 33.33}%)`}}
@@ -70,13 +61,27 @@ const Instructors = () => {
                                         <button className="btn btn-primary">View Details</button>
                                     </div>
                                 </figure>
-                                <div className="">
-                                    <h3 className="card-title">{instructor.name}</h3>
+                                <div className="text-center">
+                                    <h3 className="font-bold text-lg text-center ">{instructor.name}</h3>
                                     <p className="text-sm opacity-70">{instructor.language} Instructor</p>
                                 </div>
                             </div>
                         </div>
                     ))}
+                </div>
+                <div className="flex space-x-2 mt-1">
+                    <button className="btn btn-sm btn-circle btn-outline" onClick={prevSlide}>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                             className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7"/>
+                        </svg>
+                    </button>
+                    <button className="btn btn-sm btn-circle btn-outline" onClick={nextSlide}>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                             className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
