@@ -1,4 +1,5 @@
 import React, {useContext} from 'react';
+import logo from '../assets/books.gif';
 import {Link} from "react-router-dom";
 import {AuthContext} from "../AuthProvider/AuthProvider.jsx";
 
@@ -24,7 +25,7 @@ const Header = () => {
         {/*    </li> : <li>*/}
         {/*        <Link to="/dashboard/userhome">Dashboard</Link></li>*/}
         {/*}*/}
-        <li><Link to="/dashboard/myCourses">
+        <li><Link to="/navigation">
             My Courses
             <div className=" badge badge-secondary">
                 +0</div>
@@ -34,8 +35,8 @@ const Header = () => {
     </>
 
     return (
-        <div>
-            <div className="navbar fixed z-10 bg-opacity-20 bg-black">
+        <div className="">
+            <div className="navbar z-10 max-w-6xl container mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -46,14 +47,16 @@ const Header = () => {
                             </svg>
                         </div>
                         <ul tabIndex={0}
-                            className="menu menu-sm dropdown-content text-white mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                            className="menu  dropdown-content text-black mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                             {navOptions}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost font-extrabold text-4xl text-white">upFluent</a>
+                    <a className="btn btn-ghost font-extrabold text-3xl text-[#C298F6]">
+                        <img className="h-12 w-12" src={logo} alt="logo"/>
+                        upFluent</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-3 text-white">
+                    <ul className="menu text-lg menu-horizontal px-3 text-black">
                         {navOptions}
                     </ul>
                 </div>

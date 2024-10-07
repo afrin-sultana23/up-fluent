@@ -1,79 +1,69 @@
-import React from 'react';
-import {Link, NavLink, Outlet} from "react-router-dom";
-import {
-    FaCalendarAlt,
-    FaShoppingCart,
-    FaWallet, FaEnvelope,
-    FaClipboardList,
-    FaFileSignature,
-     FaHome,
-} from "react-icons/fa";
-import {FaShop} from "react-icons/fa6";
-import {GiHamburgerMenu} from "react-icons/gi";
+import { useState } from 'react';
+import {FaFolder, FaStar, FaWallet, FaUserGraduate} from 'react-icons/fa';
+import {NavLink} from "react-router-dom";
 
-
-
-const Dashboard = () => {
-
-    //const [data] = useCourse()
-
-    // TODO: load data from the server to have dynamic isAdmin based on the data
-    // const isAdmin = true;
-
-    //const [isAdmin] = useAdmin();
+const UserNav = () => {
+    const [isExpanded, setIsExpanded] = useState(false);
 
     return (
-        <div>
-            <div className="drawer lg:drawer-open">
-                <input id="my-drawer-2" type="checkbox" className="drawer-toggle"/>
-                <div className="drawer-content py-14 flex flex-col items-center justify-center">
-                    {/* Page content here */}
+        <div className="flex h-screen">
+            <nav
+                className={`bg-gray-100 transition-all duration-300 ease-in-out ${
+                    isExpanded ? 'w-64' : 'w-20'
+                }`}
+                onMouseEnter={() => setIsExpanded(true)}
+                onMouseLeave={() => setIsExpanded(false)}
+            >
+                <div className="ml-1 p-4">
+                    <div className="flex items-center space-x-4">
+                        <img
+                            src="/teacher-1.jpg"
+                            alt="Afrin sultana"
+                            className="w-10 h-10 rounded-full"
+                        />
+                        {isExpanded && (
+                            <div>
+                                <h2 className="text-sm font-semibold">Afrin</h2>
+                                <p className="text-xs text-gray-600">afrin@gmail.com</p>
+                                <p className="text-xs text-Black font-medium">Role: Instructor</p>
 
-                    <Outlet></Outlet>
-
-                    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
-
+                            </div>
+                        )}
+                    </div>
                 </div>
-                <div className="drawer-side bg-[#D1A054]">
-                    <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 min-h-full bg-[#D1A054] ">
-                        {/* Sidebar content here */}
-
-
-                                {/*<li><NavLink to="/dashboard/adminhome"><FaHome/> Admin Home</NavLink></li>*/}
-                                {/*<li><NavLink to="/dashboard/addItem"><FaUtensils/> Add Items</NavLink></li>*/}
-                                {/*<li><NavLink to="/dashboard/manageItem"><FaList/> Manage Items</NavLink></li>*/}
-                                {/*<li><NavLink to="/dashboard/mycart"><FaBook/> Manage Bookings</NavLink></li>*/}
-                                {/*<li><NavLink to="/dashboard/alluser"><FaUsers/> All Users</NavLink></li>*/}
-
-
-                                <li><NavLink to="/dashboard/userhome"><FaHome/> Student Home</NavLink></li>
-                                <li><NavLink to="/dashboard/reservation"><FaCalendarAlt/> Reservations</NavLink></li>
-                                <li><NavLink to="/dashboard/payment"><FaWallet/> Payment History</NavLink></li>
-                                <li><NavLink to="/dashboard/myCourses"><FaShoppingCart/> My Courses
-                                    <span className=" badge badge-secondary">
-                                +0</span>
-                                </NavLink></li>
-                                <li><Link><FaFileSignature/> My Reviews</Link></li>
-                                <li><Link><FaClipboardList/> My Bookings</Link></li>
-
-
-
-
-                        <div className="divider"></div>
-
-                        <li><Link to="/"><FaHome/> Home</Link></li>
-                        <li><Link to="/menu"><GiHamburgerMenu/> Menu</Link></li>
-                        <li><Link to="/order/salad"><FaShop/> Shop</Link></li>
-                        <li><Link to="/contact"><FaEnvelope/> Contact</Link></li>
-
-                    </ul>
-
+                <hr className="border-gray-200" />
+                <ul className="mt-5">
+                    <NavItem  to={"/Navigation/myCourses"}  icon={<FaUserGraduate />} title="Student home" />
+                    <NavItem icon={<FaFolder />} title="Courses" />
+                    <NavItem icon={<FaStar />} title="Starred" />
+                    <NavItem icon={<FaWallet />} title="Payment" />
+                    <NavItem icon={<FaStar />} title="Enrollment" />
+                </ul>
+            </nav>
+            <main className="flex-1 bg-white p-4">
+                <div className="grid grid-cols-3 gap-4">
+                    <div className="bg-rose-30 w-1/3">fjfks jkkkjsak</div>
+                    <div className="bg-cyan-400 w-1/3"></div>
+                    <div className="bg-lime-300 w-1/3"></div>
                 </div>
-            </div>
 
+            </main>
         </div>
     );
 };
 
-export default Dashboard;
+const NavItem = ({icon, title}) => {
+    return (
+        <li className="mb-2">
+
+            <NavLink to=''
+                     className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-200"
+            >
+                <span className="mx-4 text-xl">{icon}</span>
+                <span className="text-md pl-3">{title}</span>
+            </NavLink>
+        </li>
+    );
+};
+
+export default UserNav;

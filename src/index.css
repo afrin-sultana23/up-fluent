@@ -8,8 +8,8 @@
 }
 
 .log-btn {
-    @apply  px-4 font-serif font-medium  btn bg-black border-0 text-white
-    tracking-widest m-0 hover:text-black hover:border-gray-400 hover:bg-white ;
+    @apply  px-4 font-bold  btn btn-outline border-2 border-[#C298F6] text-[#C298F6]
+    tracking-widest m-0 hover:text-white hover:border-[#C298F6] hover:bg-[#C298F6]  ;
 }
 
 .heading {

@@ -4,8 +4,11 @@ import Main from "../Layout/Main.jsx";
 import Home from "../Pages/Home/Home.jsx";
 import Login from "../User/Login.jsx";
 import SignUp from "../User/SignUp.jsx";
-import Dashboard from "../Dashboard/Dashboard.jsx";
+import Dashboard from "../Dashboard/UserNav.jsx";
 import MyCourses from "../Pages/student/MyCourses.jsx";
+import Navigation from "../Dashboard/Navigation.jsx";
+import Analytics from "../Dashboard/Analytics.jsx";
+import UserHome from "../Dashboard/UserHome.jsx";
 
 const Router = createBrowserRouter([
     {
@@ -27,12 +30,23 @@ const Router = createBrowserRouter([
         ]
     },
     {
-        path: 'dashboard',
-        element: <Dashboard></Dashboard>,
+        path: 'navigation',
+        element: <Navigation></Navigation>,
         children: [
             {
                 path: 'myCourses',
                 element: <MyCourses></MyCourses>
+            },
+            {
+                path: 'home',
+                element: <UserHome></UserHome>,
+            },
+            {
+                path: 'analytics',
+                element: <Analytics></Analytics>,
+            },
+            {
+
             }
         ]
     }

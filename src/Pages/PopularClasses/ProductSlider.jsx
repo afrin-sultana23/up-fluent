@@ -57,14 +57,14 @@ const ProductSlider = () => {
                 {languageClasses.map((cls, index) => (
                     <div key={index} className="px-3">
                         <div className="card h-[18rem] bg-base-100 border border-gray-300 rounded-md shadow-sm">
-                            <figure className="m-3">
+                            <figure className="m-3 h-56">
                                 <img className="rounded-sm" src={cls.course_image} alt=""/>
                             </figure>
                             <div className="card-body pt-1 pb-1 px-4">
                                 <h2 className="card-title text-black truncate">{cls.course_name}</h2>
                                 <div className="flex justify-between items-center">
                                     <p className="text-xl text-black font-bold">{cls.price}</p>
-                                    <button className="link">more</button>
+                                    <button className="link text-purple-600 font-bold">more</button>
                                 </div>
                             </div>
                         </div>

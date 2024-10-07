@@ -5,11 +5,12 @@ import SocialLogin from "./SocialLogin.jsx";
 
 const SignUp = () => {
 
-    const {createUser} = useContext(AuthContext)
+    const {createUser, updateProfile} = useContext(AuthContext)
 
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
     } = useForm()
 
@@ -19,6 +20,12 @@ const SignUp = () => {
             .then(result => {
                 const loggedUser = result.user
                 console.log(loggedUser)
+                updateProfile(data.name , data.photoURL)
+                    .then(() => {
+                        console.log('user profile updated')
+                        reset()
+                    })
+                    .catch(error => console.log(error))
             })
             .catch((error) => console.log(error))
     }
@@ -59,6 +66,7 @@ const SignUp = () => {
                                 <input type="text" {...register("photoURL")} placeholder="Photo Url"
                                        className="input input-bordered"
                                        required/>
+                                {errors.photoURL && <span className="text-red-600">Photo URL is required</span>}
                             </div>
 
                             <div className="form-control">

@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import useCourse from "../../Hooks/useCourse.jsx";
 import Swal from "sweetalert2";
 import {FaTrashAlt} from "react-icons/fa";
+import axios from "axios";
 
 const AllClasses = () => {
 
@@ -26,7 +27,7 @@ const AllClasses = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                  fetch(`http://localhost:5000/courses/${id}`, {
+                  axios.get(`https://server-upfluent.vercel.app/courses/${id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())

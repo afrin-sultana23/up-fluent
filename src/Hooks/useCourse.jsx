@@ -8,11 +8,12 @@ const useCourse = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-            fetch('http://localhost:5000/courses')
+            fetch('https://server-upfluent.vercel.app/courses')
                 .then(res => res.json())
                 .then(data => {
                     setData(data)
                     setLoading(false)
+
                 })
             }, []);
 
