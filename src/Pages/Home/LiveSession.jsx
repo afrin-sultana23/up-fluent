@@ -6,30 +6,26 @@ const LiveSession = () => {
 
 
     return (
-        <div className="container max-w-6xl rounded-md bg-grey-200">
-            <div className="flex ">
-                <div>
-                    <p className="text-5xl text-slate-800 ">Talk to a Native</p>
-                    <p></p>
+        <div className="container my-10 border border-violet-300 max-w-6xl mx-auto rounded-md bg-grey-200">
+            
+            <div className="flex gap-6 ">
+                <div className='p-20 space-y-5'>
+                    <p className="text-5xl font-semibold text-slate-800 ">Talk to a Native</p>
+                    <p className='text-gray-700 text-lg font-semibold'>Talk to a native and build your communication skill up to next level.</p>
+                    <button className='btn bg-violet-700 text-white'>View details</button>
                 </div>
                 <div>
-                    <figure className="relative overflow-hidde m-3">
+                    <figure className="relative overflow-hidden m-3 h-[25rem] w-[35rem] rounded-lg">
                         <img
                             src={image}
                             alt={name}
                             className="rounded-sm object-fit  transition-transform duration-300 ease-in-out hover:scale-110"
                         />
-                        <div
-                            className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300 hover:opacity-100">
-                            <button
-                                className="group relative inline-flex items-center justify-center p-4 w-16 h-16 rounded-full bg-lavender-100 hover:bg-lavender-200 focus:outline-none focus:ring-2 focus:ring-lavender-400 focus:ring-offset-2 transition-colors duration-200 ease-in-out"
-                                aria-label="Play video"
-                            >
+                        <div >
+                            <button className="btn btn-circle text-violet-600 absolute top-[40%] left-[50%]" >
                                 <FaCirclePlay
-                                    className="w-8 h-8 text-lavender-600 group-hover:text-lavender-700 transition-colors duration-200 ease-in-out"/>
-                                <span
-                                    className="absolute -inset-0.5 rounded-full bg-lavender-300 opacity-0 group-hover:opacity-20 transition-opacity duration-200 ease-in-out"></span>
-                            </button>
+                                    className="w-12 h-12  p-0 transition-colors duration-200 ease-in-out"/>
+                            </button> 
                         </div>
                     </figure>
                 </div>

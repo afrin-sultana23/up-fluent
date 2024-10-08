@@ -9,6 +9,8 @@ import {
 import { NavLink, Outlet } from "react-router-dom";
 
 const Navigation = () => {
+
+    const img = "https://i.imgur.com/RyLqmvB.png"
     const [isExpanded, setIsExpanded] = useState(false);
 
     const navItems = [
@@ -39,6 +41,8 @@ const Navigation = () => {
                             <div>
                                 <h2 className="text-sm font-semibold">Afrin Sultana</h2>
                                 <p className="text-xs text-gray-600">afrin@gmail.com</p>
+                                <p className="text-xs text-red-600 inline">Role: </p><span className="text-xs text-grey-600 inline">Admin </span>
+
                             </div>
                         )}
                     </div>
@@ -51,10 +55,9 @@ const Navigation = () => {
                 </ul>
             </nav>
             <main className="flex-1 bg-white p-4">
-                <div className="grid grid-cols-3 gap-2">
-                    <div className="bg-rose-300 h-96 w-full"></div>
-                    <div className="bg-cyan-400 h-96 w-full"></div>
-                    <div className="bg-lime-300 h-96 w-full"></div>
+                <div className="relative">
+                    <img className="w-full" src={img} alt="" />
+                    <p className='text-3xl font-bold absolute top-[45%] left-[40%] '>welcome to Dashboard</p>
                 </div>
                 <div>
                     <Outlet />
